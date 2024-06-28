@@ -1,15 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Nav from '../components/Nav.astro';
-import Onlineboard from '../components/Onlineboard.jsx';
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Onlineboard from '../components/Onlineboard.astro'
+import Loading from '../components/loading.astro'
 ---
 
 <Layout title="Ranked VTOL VR Headless Server">
 	<Nav items='[["Online", "/"], ["Leaderboard", "/leaderboard"]]'></Nav>
 	<div>
+		<Loading primary="#F4F4F4" secondary="#B6B6B6" show />
 		<Onlineboard />
 	</div>
 </Layout>
+
+<script>
+	const loop = setInterval(() => {
+		if (document.querySelector('Onlineboard')?.innerHTML !== null) {
+			document.querySelector('#REMOVE')?.remove()
+			document.querySelector('main').style.width = 'calc(100% / 1.618)'
+		}
+		clearInterval(loop)
+	}, 1)
+</script>
 
 <style>
 	div {

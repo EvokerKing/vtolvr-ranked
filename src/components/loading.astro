@@ -1,0 +1,27 @@
+---
+interface Props {
+	primary: string,
+	secondary: string,
+	show: boolean
+}
+const { primary, secondary, show } = Astro.props
+---
+
+<div id="REMOVE"></div>
+<script define:vars={{show}}>
+	if (show !== true) {
+		document.querySelector('div').style.width = '0'
+	}
+</script>
+
+<style define:vars={{ primary, secondary }}>
+    div {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 8px solid var(--secondary);
+        border-right-color: var(--primary);
+        animation: s2 0.5s infinite linear;
+    }
+    @keyframes s2 {to{transform: rotate(1turn)}}
+</style>
