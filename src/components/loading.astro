@@ -1,18 +1,12 @@
 ---
 interface Props {
 	primary: string,
-	secondary: string,
-	show: boolean
+	secondary: string
 }
-const { primary, secondary, show } = Astro.props
+const { primary, secondary } = Astro.props
 ---
 
-<div id="REMOVE"></div>
-<script define:vars={{show}}>
-	if (show !== true) {
-		document.querySelector('div').style.width = '0'
-	}
-</script>
+<div></div>
 
 <style define:vars={{ primary, secondary }}>
     div {

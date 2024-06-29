@@ -1,14 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Nav from '../components/Nav.astro'
 import Onlineboard from '../components/Onlineboard.astro'
 import Loading from '../components/loading.astro'
 ---
 
 <Layout title="Ranked VTOL VR Headless Server">
-	<Nav items='[["Online", "/"], ["Leaderboard", "/leaderboard"]]'></Nav>
 	<div>
-		<Loading primary="#F4F4F4" secondary="#B6B6B6" show />
+		<Loading primary="#F4F4F4" secondary="#858585" />
 		<Onlineboard />
 	</div>
 </Layout>

@@ -111,7 +111,7 @@ if (users === 0) {
         <p class="barText">Last User Update: <span id="editTime">{Math.round((Date.now() - time) / 1000)}</span> seconds ago</p>
     </div>
 </main>
-<script define:vars={{ time }}>
+<script is:inline define:vars={{ time }}>
 	setInterval(() => {
 		document.getElementById("editTime").innerText = Math.round((Date.now() - time) / 1000).toString()
 	}, 1000)
@@ -253,7 +253,7 @@ if (users === 0) {
 	.circle {
         width: 15px;
         height: 15px;
-		border-radius: 7.5px;
+		border-radius: 50%;
         background: var(--serverColor);
 	}
 
