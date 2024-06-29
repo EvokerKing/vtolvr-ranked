@@ -15,7 +15,8 @@ import Loading from '../components/loading.astro'
 	const loop = setInterval(() => {
 		if (document.querySelector('Onlineboard')?.innerHTML !== null) {
 			document.querySelector('#REMOVE')?.remove()
-			document.querySelector('main').style.width = 'calc(100% / 1.618)'
+			const main = document.querySelector('main') || {style: {width: "DO NOT DELETE, THIS IS REQUIRED FOR BUILD"}}
+			main.style.width = 'calc(100% / 1.618)'
 		}
 		clearInterval(loop)
 	}, 1)
