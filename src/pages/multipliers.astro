@@ -11,6 +11,6 @@ import Loading from "../../node_modules/astro-material-design/components/communi
         <p class="md-typescale-body-large" style="color: var(--md-color-on-surface)">Each weapon and plane has a specific kill multiplier that is updated after every match.</p>
 	</Card>
 	<MultiCards server:defer>
-		<Loading slot="fallback" indeterminate style="position: absolute; top: 0; left: 0; right: 0; width: fit-content;" progress="50%" />
+		<Loading slot="fallback" indeterminate style="position: absolute; top: 0; left: 0; right: 0; width: unset;" progress="50%" />
 	</MultiCards>
 </Layout>
