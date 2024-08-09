@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/layout.astro"
+import Card from "../../node_modules/astro-material-design/components/containment/card.astro"
+import MultiCards from "../components/multipliers.astro";
+import Loading from "../../node_modules/astro-material-design/components/communication/progress.astro"
+---
+
+<Layout title="multipliers" page="3" style="display: flex; flex-direction: column; gap: 16px">
+	<Card type="elevated" style="width: 100%; height: 100%; box-sizing: border-box;">
+		<p class="md-typescale-display-large" style="color: var(--md-color-on-surface)">Multipliers</p>
+        <p class="md-typescale-body-large" style="color: var(--md-color-on-surface)">Each weapon and plane has a specific kill multiplier that is updated after every match.</p>
+	</Card>
+	<MultiCards server:defer>
+		<Loading slot="fallback" indeterminate style="position: absolute; top: 0; left: 0;" progress="50%" />
+	</MultiCards>
+</Layout>

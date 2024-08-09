@@ -2,7 +2,7 @@
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
 		"paths": {
-			"@material-components/*": ["node_modules/astro-material-design/components/*"],
+			"@material-components/*": ["../../node_modules/astro-material-design/components/*"],
 			"@public/*": ["public/*"]
 		}
 	}

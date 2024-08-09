@@ -1,0 +1,34 @@
+---
+import List from "../../node_modules/astro-material-design/components/containment/list-item.astro"
+
+const res = await fetch('https://hs.vtolvr.live/api/v1/public/multipliers')
+const data = await res.json()
+---
+
+<main>
+	{data.map((i: any, iter: number) => <List style="width: 100%; height: 100%; box-sizing: border-box">
+		<Fragment slot="headline">{iter + 1}: {i.killStr.replaceAll('->', ' ➡ ').replaceAll('FifthGen', '5th Gen').replaceAll('FourthGen', '4th Gen').replaceAll('HighTechRadar', 'AIM-120').replaceAll('HighTechIR', 'AIM-9/AIRS-T').replaceAll('LowTechRadar', 'AIM-7/AIM-54').replaceAll('LowTechIR', 'AIM-9e')}</Fragment>
+        <Fragment slot="trailing">{Math.round(i.multiplier * 100) / 100}x</Fragment>
+        <p class="md-typescale-body-small" style="color: var(--md-color-on-surface-variant); margin: 0;" slot="supporting">{i.count} of these kills have been counted</p>
+	</List>)}
+</main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	div {
+		display: flex;
+		flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: fit-content;
+	}
+
+	p {
+		color: var(--md-color-on-surface);
+	}
+</style>

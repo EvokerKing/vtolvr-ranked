@@ -1,0 +1,56 @@
+---
+import Styles from '../../node_modules/astro-material-design/components/styles.astro'
+import NavRail from '../../node_modules/astro-material-design/components/navigation/navigation-rail.astro'
+export const pages: any = [
+    ['Online', 'home', 'window.location.href = "/"'],
+    ['Users', 'leaderboard', 'window.location.href = "/scoreboard"'],
+    ['Stats', 'analytics', 'window.location.href = "/stats"'],
+    ['Multis', 'monitoring', 'window.location.href = "/multipliers"']
+]
+
+const json: any = []
+
+for (const x in pages as object) {
+    json.push(pages[x])
+}
+
+interface Props {
+	title: string,
+    page: string,
+    style?: string
+}
+
+const { title, page, style } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{title}</title>
+</head>
+<body>
+<NavRail json={JSON.stringify(json)} selected={page}></NavRail>
+
+<div style={"width: 100%; min-height: 100%; padding: 16px 16px 16px 80px; box-sizing: border-box; position: relative;" + style}>
+    <slot />
+</div>
+
+<Styles hex="#007bff" dark />
+<style is:global>
+    body, html {
+        background: var(--md-color-surface);
+        width: 100%;
+        height: 100%;
+    }
+
+	* {
+        margin: 0;
+        padding: 0;
+	}
+</style>
+</body>
+</html>
