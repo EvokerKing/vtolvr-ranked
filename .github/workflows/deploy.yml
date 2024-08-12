@@ -26,4 +26,4 @@ jobs:
         with:
           project: vtolvr
           entrypoint: server/entry.mjs
-          root: dist
+          root: ./dist
